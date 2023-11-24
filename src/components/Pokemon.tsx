@@ -7,7 +7,7 @@ type Props = {
 }
 
 const Pokemon: React.FC<Props> = ({ size, pokemon }): JSX.Element => {
-  if (size === 'large') {
+  if (size === 'large' && pokemon) {
     return (
       <View>
         <View style={styles.container}>
@@ -52,7 +52,7 @@ const Pokemon: React.FC<Props> = ({ size, pokemon }): JSX.Element => {
       </View>
     );
   }
-  else if (size === 'small') {
+  else if (size === 'small' && pokemon) {
     return (
       <View style={styles.smallContainer}>
         <View style={styles.container}>

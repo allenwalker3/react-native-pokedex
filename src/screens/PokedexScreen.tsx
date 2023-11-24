@@ -23,7 +23,10 @@ const PokedexScreen = ({ navigation }: BottomTabScreenProps<PokedexScreenParamLi
     <ScrollView style={styles.scrollView}
       contentContainerStyle={styles.contentContainer}>
       {history.map((pokemon, index) =>
-        <Pressable key={index} onPress={() => selectPokemon(pokemon)}>
+        <Pressable key={index} onPress={() => selectPokemon(pokemon)}
+          style={({ pressed }) =>
+            pressed && [styles.pressed]
+          }>
           <Pokemon key={index} size="small" pokemon={pokemon} />
         </Pressable>
       )}
@@ -49,5 +52,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingBottom: 50
+  },
+  pressed: {
+    opacity: 0.75,
   },
 });

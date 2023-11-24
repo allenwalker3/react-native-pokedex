@@ -53,7 +53,7 @@ const App: React.FC = (): JSX.Element => {
 
   return (
     <>
-      <StatusBar style="light" />
+      <StatusBar style="auto" />
       <Provider store={store}>
         <SafeAreaView style={styles.container} onLayout={onLayoutRootView}>
           <AppNavigator />

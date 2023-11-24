@@ -19,11 +19,13 @@ const SearchScreen = ({ navigation }: BottomTabScreenProps<SearchScreenParamList
 
   const findAndSetPokemonIntoState = async (name: string) => {
     try {
-      const pokemon = await fetchPokemonByName(name);
-      dispatch(setPokemon(pokemon));
-      dispatch(pokedexAdd(pokemon));
-      setSearchText('');
-      navigation.navigate('Pokemon');
+      if (name) {
+        const pokemon = await fetchPokemonByName(name);
+        dispatch(setPokemon(pokemon));
+        dispatch(pokedexAdd(pokemon));
+        setSearchText('');
+        navigation.navigate('Pokemon');
+      }
     } catch (err: any) {
       setError(err.message);
       setSearchText('');
@@ -42,6 +44,7 @@ const SearchScreen = ({ navigation }: BottomTabScreenProps<SearchScreenParamList
         onChangeText={text => setSearchText(text)}
         value={searchText}
         inputMode="text"
+        autoFocus
       />
       <View style={styles.button}>
         <Button title="Search" onPress={() => findAndSetPokemonIntoState(searchText)} />
