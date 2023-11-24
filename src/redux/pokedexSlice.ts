@@ -14,12 +14,6 @@ const pokedexSlice = createSlice({
     setPokemon(state, action) {
       state.pokemon = action.payload;  
     }
-    /*
-      pokedexToggled(state, action) {
-        const todo = state.find(todo => todo.id === action.payload)
-        todo.completed = !todo.completed
-      }
-      */
   }
 });
   
